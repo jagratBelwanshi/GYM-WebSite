@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iron Life Gym</title>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='images/logo4.jpg') }}" alt="Iron Life Gym Logo">
+            <p>IRON LIFE GYM</p>
+        </div>
+        <nav class="navigation">
+            <ul class="navbar">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About us</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#de">Details</a></li>
+            </ul>
+        </nav>
+        <div class="option">
+            <a href="https://www.amazon.in/l/3403635031" target="_blank">
+                <button class="btn">Products</button>
+            </a>
+            <a href="https://in.puma.com/in/en/sports/sports-training/gym-wear" target="_blank">
+                <button class="btn">Outfits</button>
+            </a>
+        </div>
+    </header>
+
+    <section id="home">
+        <div class="container">
+            <p>Welcome to Iron Life Gym, where fitness meets passion! At Iron Life Gym, we believe in empowering individuals to
+                embark on a journey towards a healthier and happier lifestyle. Our state-of-the-art facilities, expert
+                trainers, and diverse range of classes cater to every fitness level and goal. Whether you're a seasoned
+                athlete or just starting out, we're here to support and motivate you every step of the way. Join our
+                community today and unlock your full potential!
+            </p>
+        </div>
+
+        <div class="container1">
+            <div class="form-grp2">Enrollment Form</div>
+            <form id="enrollment-form" action="/enroll" method="POST">
+                <div class="form-grp">
+                    <input type="email" name="email" placeholder="Email" required>
+                </div>
+                <div class="form-grp">
+                    <input type="text" name="name" placeholder="Enter your Name" required>
+                </div>
+                <div class="form-grp">
+                    <input type="tel" name="phone" placeholder="Phone no." required>
+                </div>
+                <div class="form-grp">
+                    <input type="text" name="height_weight" placeholder="Height/cm & Weight/kg" required>
+                </div>
+                <div class="form-grp">
+                    <input type="number" name="age" placeholder="Age" required min="16" max="80">
+                </div>
+                <div class="form-grp2">
+                    <label for="Time">Time</label>
+                    <select name="Time" id="Time" required>
+                        <option value="">Select Time</option>
+                        <option value="Morning">Morning</option>
+                        <option value="Evening">Evening</option>
+                        <option value="Night">Night</option>
+                    </select>
+
+                    <label for="clock">Time Slot</label>
+                    <select name="clock" id="clock" required>
+                        <option value="">Select Slot</option>
+                        <option value="5-6AM">5-6AM</option>
+                        <option value="6-7AM">6-7AM</option>
+                        <option value="7-8AM">7-8AM</option>
+                        <option value="8-9AM">8-9AM</option>
+                        <option value="4-5PM">4-5PM</option>
+                        <option value="5-6PM">5-6PM</option>
+                        <option value="6-7PM">6-7PM</option>
+                        <option value="7-8PM">7-8PM</option>
+                        <option value="8-9PM">8-9PM</option>
+                    </select>
+                </div>
+                <div id="form-message"></div>
+                <div class="styled-form">
+                    <button type="submit" class="btn">Submit</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="About">
+            <div class="calendar-container">
+                <h1>Interactive Calendar</h1>
+                <div class="calendar-container">
+                    <h2 id="current-month-year">Month Year</h2>
+                    <button id="prev-month">&lt;</button>
+                    <button id="next-month">&gt;</button>
+                </div>
+                <div id="calendar" class="calendar"></div>
+            </div>
+            <div class="about-content">
+                <h2>Our Story</h2>
+                <p>Iron Life Gym was founded on the principle that fitness should be a positive and empowering experience. Our team of passionate and experienced professionals is dedicated to creating a supportive community to help you reach new heights.</p>
+                
+                <h2>Our Mission</h2>
+                <p>Our mission is to provide a welcoming and inclusive environment where individuals of all fitness levels can come together to achieve their wellness goals. We believe that fitness should be accessible, enjoyable, and rewarding.</p>
+                
+                <h2>Our Values</h2>
+                <ul>
+                    <li>Results-driven training programs</li>
+                    <li>Expert guidance and support</li>
+                    <li>Clean and well-maintained facilities</li>
+                    <li>Inclusive and supportive community</li>
+                    <li>Continuous innovation and improvement</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="Counter">
+            <div class="input-section">
+                <h2>Calorie Counter</h2>
+                <form id="food-form">
+                    <label for="food-name">Food Item</label>
+                    <input type="text" id="food-name" placeholder="Enter food name" required>
+            
+                    <label for="food-calories">Calories</label>
+                    <input type="number" id="food-calories" placeholder="Enter calories" required>
+            
+                    <label for="food-protein">Protein (g)</label>
+                    <input type="number" id="food-protein" placeholder="Enter protein in grams" required>
+            
+                    <label for="food-fat">Fat (g)</label>
+                    <input type="number" id="food-fat" placeholder="Enter fat in grams" required>
+            
+                    <label for="food-carbs">Carbs (g)</label>
+                    <input type="number" id="food-carbs" placeholder="Enter carbs in grams" required>
+            
+                    <button type="submit">Add Food</button>
+                </form>
+            </div>
+            
+            <div class="result-section">
+                <h2>Macronutrient Breakdown</h2>
+                <div class="result">
+                    <p><strong>Total Calories:</strong> <span id="total-calories">0</span> kcal</p>
+                    <p><strong>Total Protein:</strong> <span id="total-protein">0</span> g</p>
+                    <p><strong>Total Fat:</strong> <span id="total-fat">0</span> g</p>
+                    <p><strong>Total Carbs:</strong> <span id="total-carbs">0</span> g</p>
+                </div>
+                <div class="graph-container">
+                    <div class="graph">
+                        <div class="bar" id="protein-bar"></div>
+                        <div class="bar" id="fat-bar"></div>
+                        <div class="bar" id="carbs-bar"></div>
+                    </div>
+                    <div class="graph-labels">
+                        <span>Protein</span>
+                        <span>Fat</span>
+                        <span>Carbs</span>
+                    </div>
+                </div>
+                <div id="food-list"></div>
+            </div>
+        </div>
+    </section>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script>
+        // Handle form submission
+        document.getElementById('enrollment-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const form = e.target;
+            const formData = new FormData(form);
+            const messageElement = document.getElementById('form-message');
+            
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const result = await response.json();
+                
+                if (result.status === 'success') {
+                    messageElement.textContent = result.message;
+                    messageElement.style.color = 'green';
+                    form.reset();
+                } else {
+                    messageElement.textContent = result.message || 'An error occurred';
+                    messageElement.style.color = 'red';
+                }
+            } catch (error) {
+                messageElement.textContent = 'Failed to submit form. Please try again.';
+                messageElement.style.color = 'red';
+                console.error('Error:', error);
+            }
+        });
+    </script>
+</body>
+</html>
